@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Votaciones del Curso - TV</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    
+
+    <div class="background"></div>
+    <div class="content">
+        <h1 class="impressive-title">EclipsSoul🌙</h1>
+        <p>When Two Souls Shine Together</p>
+        <!-- Video centrado -->
+    <div class="video-container">
+       <video id="introVideo" class="intro-video" autoplay loop controls>
+    <source src="videointro.mp4" type="video/mp4"> <!-- Asegúrate de que la ruta del video sea correcta -->
+    Tu navegador no soporta el formato de video.
+</video>
+
+ <!-- Contenedor para las imágenes a la izquierda -->
+    <div class="image-container">
+        <!-- Imagen 1 -->
+        <div class="video-item" onclick="openVideo('videoBTS.mp4', 'BTS - Dynamite', 'Canción: Dynamite')">
+            <img src="BTS.jpg" alt="BTS Dynamite" class="video-image">
+            <p class="video-title">BTS - Dynamite</p>
+        </div>
+
+        <!-- Imagen 2 -->
+        <div class="video-item" onclick="openVideo('videos/videoGOLDEN.mp4', 'Golden - Lights', 'Canción: Lights')">
+    <img src="golden.jpg" alt="Golden Lights" class="video-image">
+    <p class="video-title">Golden - Lights</p>
+        </div>
+
+        <!-- Imagen 3 -->
+        <div class="video-item" onclick="openVideo('videoSODA.mp4', 'Soda Stereo - En La Ciudad De La Furia', 'Canción: En La Ciudad De La Furia')">
+            <img src="ONEUS.jpg" alt="Soda Stereo" class="video-image">
+            <p class="video-title">Soda Stereo - En La Ciudad De La Furia</p>
+        </div>
+    </div>
+
+    </div>
+</div>
+
+        <!-- CONTADORES DE VOTOS (debajo de las imágenes) -->
+        <div class="contador-votos">
+            <div class="voto-item">
+                <div class="circulo-contador circulo-rojo-contador" id="contador-bts">0</div>
+                <div>BTS</div>
+            </div>
+            <div class="voto-item">
+                <div class="circulo-contador circulo-verde-contador" id="contador-golden">0</div>
+                <div>GOLDEN</div>
+            </div>
+            <div class="voto-item">
+                <div class="circulo-contador circulo-azul-contador" id="contador-soda">0</div>
+                <div>SODA</div>
+            </div>
+        </div>
+
+    </div>
+
+<!-- Control Remoto -->
+        <div class="control-remote">
+            <div class="remote-body">
+
+                 <!-- Power + Mute -->
+        <div class="row top-row">
+          <button id="power" class="btn-power" title="Encender / Apagar">🌔</button>
+          <div class="label">EclipsSoul🌙</div>
+                  <!-- 🔹 Efecto de encendido tipo TV -->
+        <div id="tv-power-on">
+          <div id="tv-line"></div>
+        </div>
+<!-- Teclado numérico -->
+<div class="num-pad">
+  <div class="num-row">
+    <button class="num" data-num="1">1</button>
+    <button class="num" data-num="2">2</button>
+    <button class="num" data-num="3">3</button>
+  </div>
+  <div class="num-row">
+    <button class="num" data-num="4">4</button>
+    <button class="num" data-num="5">5</button>
+    <button class="num" data-num="6">6</button>
+  </div>
+  <div class="num-row">
+    <button class="num" data-num="7">7</button>
+    <button class="num" data-num="8">8</button>
+    <button class="num" data-num="9">9</button>
+  </div>
+  <div class="num-row">
+    <button class="num" data-num="0">0</button>
+  </div>
+</div>
+
+<!-- PAD DIRECCIONAL -->
+<div class="pad-container">
+    <div class="pad">
+        <button class="flecha up"    id="flecha-up">▲</button>
+        <button class="flecha left"  id="flecha-left">◀</button>
+
+        <button class="ok-btn" id="ok-btn">OK</button>
+
+        <button class="flecha right" id="flecha-right">▶</button>
+        <button class="flecha down"  id="flecha-down">▼</button>
+    </div>
+</div>
+<!-- Control Volumen -->
+<div class="vol-container">
+    <button class="vol-btn" id="vol-up">+</button>
+    <div class="vol-label">VOL</div>
+    <button class="vol-btn" id="vol-down">-</button>
+</div>
+
+<!-- Control Canal -->
+<div class="ch-container">
+    <button class="ch-btn" id="ch-up">+</button>
+    <div class="ch-label">CH</div>
+    <button class="ch-btn" id="ch-down">-</button>
+</div>
+
+  <!-- BOTONES DE VOTACIÓN (debajo del pad) -->
+            <div class="voting-controls">
+                <div class="botones-votacion">
+                    <!-- Botón ROJO - BTS -->
+                    <button class="btn-voto btn-rojo" onclick="votar('rojo', 'BTS')">
+                        <span class="circulo-rojo"></span> BTS
+                    </button>
+                    
+                    <!-- Botón VERDE - GOLDEN -->
+                    <button class="btn-voto btn-verde" onclick="votar('verde', 'GOLDEN')">
+                        <span class="circulo-verde"></span> GOLDEN
+                    </button>
+                    
+                    <!-- Botón AZUL - SODA -->
+                    <button class="btn-voto btn-azul" onclick="votar('azul', 'SODA')">
+                        <span class="circulo-azul"></span> SODA
+                    </button>
+                </div>
+            </div>
+
+<!-- DIAGRAMA DE BARRAS -->
+        <div class="chart-container">
+            <h3 class="chart-title">RESULTADOS DE VOTACIÓN</h3>
+            <div class="bar-chart">
+                <div class="bar-item">
+                    <div class="bar-label">BTS</div>
+                    <div class="bar-track">
+                        <div class="bar-fill bar-rojo" id="bar-bts" style="width: 0%"></div>
+                    </div>
+                    <div class="bar-value" id="value-bts">0</div>
+                </div>
+                <div class="bar-item">
+                    <div class="bar-label">GOLDEN</div>
+                    <div class="bar-track">
+                        <div class="bar-fill bar-verde" id="bar-golden" style="width: 0%"></div>
+                    </div>
+                    <div class="bar-value" id="value-golden">0</div>
+                </div>
+                <div class="bar-item">
+                    <div class="bar-label">SODA</div>
+                    <div class="bar-track">
+                        <div class="bar-fill bar-azul" id="bar-soda" style="width: 0%"></div>
+                    </div>
+                    <div class="bar-value" id="value-soda">0</div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+<!-- Barra de descripción del video con progreso -->
+<div id="videoInfoBar" class="video-info-bar">
+    <div class="video-info-content">
+        <h3 id="videoInfoTitle" class="video-info-title">EclipsSoul 🌙 - Introducción</h3>
+        <p id="videoInfoDescription" class="video-info-description">
+            🌙 MODERADORAS DEL PROGRAMA ECLIPSOUL: LETTY Y LUCY | When Two Souls Shine Together 🌟
+        </p>
+    </div>
+    <button class="close-info-btn" onclick="cerrarInfoBar()" title="Cerrar información">×</button>
+    <div class="info-bar-progress"></div>
+</div>
+    <script src="script.js"></script>
+
+
+</body>
+</html>
+</html>
+
